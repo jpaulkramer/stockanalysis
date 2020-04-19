@@ -22,13 +22,13 @@ newstock = raw_input('Input Ticker Symbol: ')
 
 # check if we're already following this stock
 if newstock in open(pth+'stocks.txt').read():
-    print 'That stock is already being followed.'
+    print('That stock is already being followed.')
 else:    
     try:
-        print 'Grabbing stocks for ', newstock, ' from Jan 1 2014 to present.'
+        print('Grabbing stocks for ', newstock, ' from Jan 1 2014 to present.')
         stockdata = DataReader(newstock, 'yahoo', datetime(2014,1,1))
         
-        print 'Adding ', newstock, ' to analysis list.'
+        print ('Adding ', newstock, ' to analysis list.')
         namefile = open(pth+'stocks.txt', 'a+')
         namefile.write(newstock+"\n")
         namefile.close()
@@ -45,4 +45,4 @@ else:
         stockdata.to_csv(stockfile)
         stockfile.close()
     except:
-        print 'Couldnt find', newstock
+        print('Couldnt find', newstock)
